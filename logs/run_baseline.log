@@ -1,0 +1,207 @@
+[constant fold 0] {'id_score': 0.0614, 'ood_score': 0.0713, 'main_score': 0.0664}
+[constant fold 1] {'id_score': 0.0614, 'ood_score': 0.0709, 'main_score': 0.0662}
+[constant fold 2] {'id_score': 0.0614, 'ood_score': 0.0763, 'main_score': 0.0689}
+[constant fold 3] {'id_score': 0.0614, 'ood_score': 0.0664, 'main_score': 0.0639}
+[constant fold 4] {'id_score': 0.0614, 'ood_score': 0.0732, 'main_score': 0.0673}
+extracting {'encoder': 'pixels', 'input_size': 32, 'invert': False, 'batch_size': 2048} features for 200840 images -> /Users/basil/rnd ml/bengali-grapheme-rnd/data/features/pixels__32_inv0.npy
+  features 2048/200840  0s
+[b1_pixels_linear fold 0 seed 42] {'id_score': 0.2098, 'ood_score': 0.185, 'main_score': 0.1974}
+[b1_pixels_linear fold 1 seed 42] {'id_score': 0.2088, 'ood_score': 0.1813, 'main_score': 0.195}
+[b1_pixels_linear fold 2 seed 42] {'id_score': 0.2091, 'ood_score': 0.1932, 'main_score': 0.2012}
+[b1_pixels_linear fold 3 seed 42] {'id_score': 0.2078, 'ood_score': 0.1824, 'main_score': 0.1951}
+[b1_pixels_linear fold 4 seed 42] {'id_score': 0.2069, 'ood_score': 0.194, 'main_score': 0.2004}
+[fold 0 seed 42] device=mps train=144327 val_id=36085 val_ood=20428
+{'epoch': 1, 'train_loss': 2.1961, 'epoch_sec': 147.7236, 'lr': 0.001, 'id_score': 0.8895, 'ood_score': 0.7664, 'main_score': 0.8279}
+{'epoch': 2, 'train_loss': 0.4497, 'epoch_sec': 140.6893, 'lr': 0.0008, 'id_score': 0.9274, 'ood_score': 0.7884, 'main_score': 0.8579}
+{'epoch': 3, 'train_loss': 0.2545, 'epoch_sec': 143.6206, 'lr': 0.0006, 'id_score': 0.9414, 'ood_score': 0.782, 'main_score': 0.8617}
+{'epoch': 4, 'train_loss': 0.1198, 'epoch_sec': 142.398, 'lr': 0.0003, 'id_score': 0.9544, 'ood_score': 0.82, 'main_score': 0.8872}
+{'epoch': 5, 'train_loss': 0.0398, 'epoch_sec': 149.2168, 'lr': 0.0001, 'id_score': 0.9592, 'ood_score': 0.8234, 'main_score': 0.8913}
+{'epoch': 6, 'train_loss': 0.0162, 'epoch_sec': 145.3225, 'lr': 0.0, 'id_score': 0.9601, 'ood_score': 0.8293, 'main_score': 0.8947}
+{'id_score': 0.9601, 'ood_score': 0.8293, 'main_score': 0.8947, 'all_score_kaggle': 0.9223}
+[fold 1 seed 42] device=mps train=144660 val_id=36158 val_ood=20022
+{'epoch': 1, 'train_loss': 2.1924, 'epoch_sec': 149.4843, 'lr': 0.001, 'id_score': 0.8744, 'ood_score': 0.673, 'main_score': 0.7737}
+{'epoch': 2, 'train_loss': 0.4503, 'epoch_sec': 147.3115, 'lr': 0.0008, 'id_score': 0.9061, 'ood_score': 0.7201, 'main_score': 0.8131}
+{'epoch': 3, 'train_loss': 0.2608, 'epoch_sec': 147.8871, 'lr': 0.0006, 'id_score': 0.9433, 'ood_score': 0.7585, 'main_score': 0.8509}
+{'epoch': 4, 'train_loss': 0.122, 'epoch_sec': 153.0262, 'lr': 0.0003, 'id_score': 0.9559, 'ood_score': 0.7687, 'main_score': 0.8623}
+{'epoch': 5, 'train_loss': 0.0404, 'epoch_sec': 148.1668, 'lr': 0.0001, 'id_score': 0.9599, 'ood_score': 0.7786, 'main_score': 0.8692}
+{'epoch': 6, 'train_loss': 0.0165, 'epoch_sec': 145.4823, 'lr': 0.0, 'id_score': 0.9598, 'ood_score': 0.7783, 'main_score': 0.8691}
+{'id_score': 0.9598, 'ood_score': 0.7783, 'main_score': 0.8691, 'all_score_kaggle': 0.9048}
+[fold 2 seed 42] device=mps train=144385 val_id=36095 val_ood=20360
+{'epoch': 1, 'train_loss': 2.1858, 'epoch_sec': 149.1964, 'lr': 0.001, 'id_score': 0.8444, 'ood_score': 0.6507, 'main_score': 0.7475}
+{'epoch': 2, 'train_loss': 0.4546, 'epoch_sec': 156.7183, 'lr': 0.0008, 'id_score': 0.9056, 'ood_score': 0.7086, 'main_score': 0.8071}
+{'epoch': 3, 'train_loss': 0.2598, 'epoch_sec': 152.1856, 'lr': 0.0006, 'id_score': 0.9408, 'ood_score': 0.7279, 'main_score': 0.8344}
+{'epoch': 4, 'train_loss': 0.1361, 'epoch_sec': 149.0667, 'lr': 0.0003, 'id_score': 0.9527, 'ood_score': 0.7416, 'main_score': 0.8472}
+{'epoch': 5, 'train_loss': 0.0501, 'epoch_sec': 154.9254, 'lr': 0.0001, 'id_score': 0.9587, 'ood_score': 0.7532, 'main_score': 0.856}
+{'epoch': 6, 'train_loss': 0.0228, 'epoch_sec': 150.1343, 'lr': 0.0, 'id_score': 0.9602, 'ood_score': 0.7688, 'main_score': 0.8645}
+{'id_score': 0.9602, 'ood_score': 0.7688, 'main_score': 0.8645, 'all_score_kaggle': 0.8969}
+[fold 3 seed 42] device=mps train=144512 val_id=36129 val_ood=20199
+{'epoch': 1, 'train_loss': 2.1903, 'epoch_sec': 146.433, 'lr': 0.001, 'id_score': 0.8674, 'ood_score': 0.684, 'main_score': 0.7757}
+{'epoch': 2, 'train_loss': 0.4497, 'epoch_sec': 151.9372, 'lr': 0.0008, 'id_score': 0.9249, 'ood_score': 0.731, 'main_score': 0.8279}
+{'epoch': 3, 'train_loss': 0.2594, 'epoch_sec': 146.5346, 'lr': 0.0006, 'id_score': 0.9432, 'ood_score': 0.771, 'main_score': 0.8571}
+{'epoch': 4, 'train_loss': 0.1222, 'epoch_sec': 151.4992, 'lr': 0.0003, 'id_score': 0.9544, 'ood_score': 0.7687, 'main_score': 0.8616}
+{'epoch': 5, 'train_loss': 0.042, 'epoch_sec': 154.4683, 'lr': 0.0001, 'id_score': 0.9591, 'ood_score': 0.7906, 'main_score': 0.8748}
+{'epoch': 6, 'train_loss': 0.0173, 'epoch_sec': 154.1169, 'lr': 0.0, 'id_score': 0.9594, 'ood_score': 0.7924, 'main_score': 0.8759}
+{'id_score': 0.9594, 'ood_score': 0.7924, 'main_score': 0.8759, 'all_score_kaggle': 0.9006}
+[fold 4 seed 42] device=mps train=144609 val_id=36152 val_ood=20079
+{'epoch': 1, 'train_loss': 2.1968, 'epoch_sec': 148.251, 'lr': 0.001, 'id_score': 0.8642, 'ood_score': 0.7156, 'main_score': 0.7899}
+{'epoch': 2, 'train_loss': 0.4462, 'epoch_sec': 150.8116, 'lr': 0.0008, 'id_score': 0.9269, 'ood_score': 0.759, 'main_score': 0.843}
+{'epoch': 3, 'train_loss': 0.2568, 'epoch_sec': 147.809, 'lr': 0.0006, 'id_score': 0.9285, 'ood_score': 0.7621, 'main_score': 0.8453}
+{'epoch': 4, 'train_loss': 0.1216, 'epoch_sec': 141.675, 'lr': 0.0003, 'id_score': 0.9503, 'ood_score': 0.784, 'main_score': 0.8671}
+{'epoch': 5, 'train_loss': 0.0394, 'epoch_sec': 140.6559, 'lr': 0.0001, 'id_score': 0.9529, 'ood_score': 0.8002, 'main_score': 0.8766}
+{'epoch': 6, 'train_loss': 0.0158, 'epoch_sec': 143.0588, 'lr': 0.0, 'id_score': 0.9545, 'ood_score': 0.8049, 'main_score': 0.8797}
+{'id_score': 0.9545, 'ood_score': 0.8049, 'main_score': 0.8797, 'all_score_kaggle': 0.9062}
+extracting {'encoder': 'dinov3', 'model_name': 'vit_small_patch16_dinov3.lvd1689m', 'input_size': 224, 'invert': True, 'batch_size': 256} features for 200840 images -> /Users/basil/rnd ml/bengali-grapheme-rnd/data/features/dinov3_vit_small_patch16_dinov3.lvd1689m_224_inv1.npy
+  features 256/200840  1s
+  features 25856/200840  88s
+  features 51456/200840  175s
+  features 77056/200840  260s
+  features 102656/200840  344s
+  features 128256/200840  429s
+  features 153856/200840  515s
+  features 179456/200840  602s
+[b3_dinov3_vits16_probe fold 0 seed 42] {'id_score': 0.653, 'ood_score': 0.5685, 'main_score': 0.6107}
+[b3_dinov3_vits16_probe fold 1 seed 42] {'id_score': 0.6563, 'ood_score': 0.5466, 'main_score': 0.6015}
+[b3_dinov3_vits16_probe fold 2 seed 42] {'id_score': 0.6526, 'ood_score': 0.5498, 'main_score': 0.6012}
+[b3_dinov3_vits16_probe fold 3 seed 42] {'id_score': 0.6546, 'ood_score': 0.5501, 'main_score': 0.6023}
+[b3_dinov3_vits16_probe fold 4 seed 42] {'id_score': 0.6526, 'ood_score': 0.5552, 'main_score': 0.6039}
+extracting {'encoder': 'mobileclip2', 'model_name': 'MobileCLIP2-S0', 'pretrained': 'dfndr2b', 'input_size': 256, 'invert': True, 'batch_size': 256} features for 200840 images -> /Users/basil/rnd ml/bengali-grapheme-rnd/data/features/mobileclip2_MobileCLIP2-S0_256_inv1.npy
+  features 256/200840  2s
+  features 25856/200840  92s
+  features 51456/200840  181s
+  features 77056/200840  271s
+  features 102656/200840  361s
+  features 128256/200840  450s
+  features 153856/200840  544s
+  features 179456/200840  636s
+[b4_mobileclip2_s0_probe fold 0 seed 42] {'id_score': 0.6101, 'ood_score': 0.541, 'main_score': 0.5756}
+[b4_mobileclip2_s0_probe fold 1 seed 42] {'id_score': 0.6117, 'ood_score': 0.5219, 'main_score': 0.5668}
+[b4_mobileclip2_s0_probe fold 2 seed 42] {'id_score': 0.6071, 'ood_score': 0.5143, 'main_score': 0.5607}
+[b4_mobileclip2_s0_probe fold 3 seed 42] {'id_score': 0.6096, 'ood_score': 0.5137, 'main_score': 0.5617}
+[b4_mobileclip2_s0_probe fold 4 seed 42] {'id_score': 0.6101, 'ood_score': 0.5205, 'main_score': 0.5653}
+[fold 0 seed 43] device=mps train=144327 val_id=36085 val_ood=20428
+{'epoch': 1, 'train_loss': 2.1698, 'epoch_sec': 149.3485, 'lr': 0.001, 'id_score': 0.836, 'ood_score': 0.7272, 'main_score': 0.7816}
+{'epoch': 2, 'train_loss': 0.4481, 'epoch_sec': 141.5234, 'lr': 0.0008, 'id_score': 0.9236, 'ood_score': 0.7755, 'main_score': 0.8496}
+{'epoch': 3, 'train_loss': 0.2548, 'epoch_sec': 139.0327, 'lr': 0.0006, 'id_score': 0.9347, 'ood_score': 0.7894, 'main_score': 0.862}
+{'epoch': 4, 'train_loss': 0.1204, 'epoch_sec': 142.7485, 'lr': 0.0003, 'id_score': 0.9553, 'ood_score': 0.8141, 'main_score': 0.8847}
+{'epoch': 5, 'train_loss': 0.0393, 'epoch_sec': 149.3828, 'lr': 0.0001, 'id_score': 0.9599, 'ood_score': 0.8278, 'main_score': 0.8939}
+{'epoch': 6, 'train_loss': 0.0161, 'epoch_sec': 147.3133, 'lr': 0.0, 'id_score': 0.9598, 'ood_score': 0.8226, 'main_score': 0.8912}
+{'id_score': 0.9598, 'ood_score': 0.8226, 'main_score': 0.8912, 'all_score_kaggle': 0.9207}
+[fold 0 seed 44] device=mps train=144327 val_id=36085 val_ood=20428
+{'epoch': 1, 'train_loss': 2.177, 'epoch_sec': 147.0558, 'lr': 0.001, 'id_score': 0.8666, 'ood_score': 0.7514, 'main_score': 0.809}
+{'epoch': 2, 'train_loss': 0.4505, 'epoch_sec': 143.762, 'lr': 0.0008, 'id_score': 0.9133, 'ood_score': 0.7799, 'main_score': 0.8466}
+{'epoch': 3, 'train_loss': 0.2544, 'epoch_sec': 142.5552, 'lr': 0.0006, 'id_score': 0.9413, 'ood_score': 0.8152, 'main_score': 0.8783}
+{'epoch': 4, 'train_loss': 0.1188, 'epoch_sec': 144.5043, 'lr': 0.0003, 'id_score': 0.9529, 'ood_score': 0.8199, 'main_score': 0.8864}
+{'epoch': 5, 'train_loss': 0.0389, 'epoch_sec': 147.4906, 'lr': 0.0001, 'id_score': 0.959, 'ood_score': 0.8321, 'main_score': 0.8956}
+{'epoch': 6, 'train_loss': 0.0157, 'epoch_sec': 141.4647, 'lr': 0.0, 'id_score': 0.96, 'ood_score': 0.8316, 'main_score': 0.8958}
+{'id_score': 0.96, 'ood_score': 0.8316, 'main_score': 0.8958, 'all_score_kaggle': 0.9229}
+### Сводная таблица
+
+Все модели на одних и тех же 5 фолдах. Значение — среднее по фолдам ± std по фолдам. В std входит и то, какие графемы отложены в OOD (в каждом фолде свои 10%).
+95% CI — бутстрап того же среднего: изображения пересэмплируются внутри графем, графемы и обученные модели фиксированы. Поэтому CI отражает только шум конечной выборки изображений и намного уже std по фолдам.
+
+| модель | main = (ID+OOD)/2 | 95% CI main | ID | OOD | ID root / vowel / cons | OOD root / vowel / cons | обучение, с/фолд | признаки, с (разово) |
+|---|---|---|---|---|---|---|---:|---:|
+| B0 constant | 0.0665 ± 0.0018 | [0.0665, 0.0665] | 0.0614 ± 0.0000 | 0.0716 ± 0.0036 | 0.006 / 0.091 / 0.143 | 0.014 / 0.097 / 0.162 | 0 |  |
+| B1 pixels32 + linear | 0.1978 ± 0.0029 | [0.1969, 0.1987] | 0.2085 ± 0.0011 | 0.1872 ± 0.0060 | 0.090 / 0.407 / 0.247 | 0.029 / 0.412 / 0.279 | 3 | 2 |
+| B3 DINOv3 ViT-S/16 (frozen) + linear | 0.6039 ± 0.0040 | [0.6026, 0.6053] | 0.6538 ± 0.0016 | 0.5540 ± 0.0086 | 0.613 / 0.796 / 0.594 | 0.387 / 0.781 / 0.661 | 2 | 674 |
+| B4 MobileCLIP2-S0 (frozen) + linear | 0.5660 ± 0.0059 | [0.5646, 0.5675] | 0.6097 ± 0.0017 | 0.5223 ± 0.0111 | 0.576 / 0.733 / 0.552 | 0.378 / 0.718 / 0.614 | 2 | 712 |
+| B2 ResNet18 fine-tune | 0.8768 ± 0.0116 | [0.8757, 0.8778] | 0.9588 ± 0.0024 | 0.7947 ± 0.0237 | 0.941 / 0.981 / 0.972 | 0.719 / 0.926 / 0.815 | 980 |  |
+
+_main_ — основная метрика выбора модели. ID — графемы, которые встречались в train фолда. OOD — 130 графем, целиком убранных из train фолда (прокси невиданных графем private-теста). Покомпонентные recall усреднены по фолдам.
+
+### Парное сравнение с B2 ResNet18 fine-tune (одни и те же фолды и изображения)
+
+| модель | Δmain, mean ± std по фолдам | фолдов лучше | 95% CI Δmain (парный бутстрап) | ΔID | ΔOOD | 95% CI ΔOOD |
+|---|---|---:|---|---|---|---|
+| B0 constant | -0.8103 ± 0.0123 | 0/5 | [-0.8114, -0.8092] | -0.8974 | -0.7231 | [-0.7249, -0.7213] |
+| B1 pixels32 + linear | -0.6789 ± 0.0123 | 0/5 | [-0.6804, -0.6776] | -0.7503 | -0.6076 | [-0.6098, -0.6055] |
+| B3 DINOv3 ViT-S/16 (frozen) + linear | -0.2728 ± 0.0079 | 0/5 | [-0.2744, -0.2713] | -0.3050 | -0.2407 | [-0.2430, -0.2383] |
+| B4 MobileCLIP2-S0 (frozen) + linear | -0.3108 ± 0.0073 | 0/5 | [-0.3124, -0.3091] | -0.3491 | -0.2725 | [-0.2749, -0.2699] |
+
+### Разброс: seed vs фолд vs выборка изображений (RQ2)
+
+| score | std по seed (фолд 0, n=3) | std по фолдам (seed 42, n=5) | бутстрап-std одного фолда (≈) |
+|---|---:|---:|---:|
+| main | 0.0024 | 0.0116 | 0.0012 |
+| id | 0.0001 | 0.0024 | 0.0013 |
+| ood | 0.0047 | 0.0237 | 0.0021 |
+
+Seed: 42 → main 0.8947 (ID 0.9601, OOD 0.8293), 43 → main 0.8912 (ID 0.9598, OOD 0.8226), 44 → main 0.8958 (ID 0.9600, OOD 0.8316)
+
+### Чувствительность к найденным утечкам
+
+Пересчёт среднего по фолдам без затронутых изображений: (а) ID-изображения, у которых в train фолда есть почти точная копия (тот же рукописный образец, сохранённый дважды; `reports/near_duplicates.csv`); (б) OOD-изображения графем, чья тройка меток всё-таки есть в train фолда под другим написанием (3 пары графем-двойников, §3).
+
+| модель | ID | ID без копий | Δ | OOD | OOD без двойников | Δ | main без обоих |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| B0 constant | 0.0614 | 0.0614 | +0.0000 | 0.0716 | 0.0716 | +0.0000 | 0.0665 |
+| B1 pixels32 + linear | 0.2085 | 0.2069 | -0.0016 | 0.1872 | 0.1872 | +0.0001 | 0.1971 |
+| B3 DINOv3 ViT-S/16 (frozen) + linear | 0.6538 | 0.6528 | -0.0011 | 0.5540 | 0.5542 | +0.0001 | 0.6035 |
+| B4 MobileCLIP2-S0 (frozen) + linear | 0.6097 | 0.6086 | -0.0011 | 0.5223 | 0.5224 | +0.0002 | 0.5655 |
+| B2 ResNet18 fine-tune | 0.9588 | 0.9574 | -0.0014 | 0.7947 | 0.7950 | +0.0003 | 0.8762 |
+
+Затронуто в среднем на фолд: 1217 ID-изображений с копией в train и 117 OOD-изображений графем-двойников.
+
+### Анализ ошибок основного бейзлайна (OOF, 5 фолдов)
+
+| срез | n | ошибка root | ошибка vowel | ошибка cons | хотя бы одна ошибка |
+|---|---:|---:|---:|---:|---:|
+| slice=id | 180619 | 4.89% | 1.32% | 1.49% | 6.68% |
+| slice=ood | 101088 | 25.23% | 4.84% | 4.53% | 31.53% |
+| ID, тип корня = vowel | 2384 | 5.45% | 1.64% | 2.43% | 6.96% |
+| ID, тип корня = consonant | 95601 | 3.93% | 1.40% | 1.76% | 6.03% |
+| ID, тип корня = conjunct | 82634 | 5.97% | 1.21% | 1.15% | 7.42% |
+| OOD, тип корня = vowel | 1437 | 78.64% | 20.95% | 6.40% | 83.72% |
+| OOD, тип корня = consonant | 57489 | 17.75% | 4.56% | 5.44% | 24.87% |
+| OOD, тип корня = conjunct | 42162 | 33.61% | 4.66% | 3.22% | 38.83% |
+| ID, картинок графемы в датасете (117.999, 147.0] | 52184 | 5.46% | 1.45% | 1.62% | 7.43% |
+| ID, картинок графемы в датасете (147.0, 153.0] | 39758 | 4.79% | 1.18% | 1.43% | 6.43% |
+| ID, картинок графемы в датасете (153.0, 167.0] | 46191 | 5.02% | 1.37% | 1.61% | 6.94% |
+| ID, картинок графемы в датасете (167.0, 283.0] | 42486 | 4.13% | 1.24% | 1.26% | 5.71% |
+| ID, двойной согласный диакритик (шум разметки) | 386 | 1.81% | 0.00% | 3.37% | 4.92% |
+
+**Притяжение к знакомым графемам.** В 87.9% ошибок на OOD-срезе предсказанная тройка (root, vowel, cons) — это графема из train того же фолда.
+Уровень случайности при тех же ошибочных компонентах: 41.0%, если ошибочное значение равномерно случайно, и 69.8%, если оно берётся из матрицы путаниц модели на ID.
+Наблюдаемая доля заметно выше второго уровня: модель действительно притягивает невиданную комбинацию к знакомой сверх того, что объясняется путаницей отдельных компонент.
+
+#### 10 корней с худшим recall (ID)
+
+| root | глиф | тип | картинок в датасете | recall |
+|---:|:---:|---|---:|---:|
+| 60 | ণ্ট | conjunct | 426 | 0.703 |
+| 84 | ন্ঠ | conjunct | 460 | 0.760 |
+| 61 | ণ্ঠ | conjunct | 575 | 0.760 |
+| 62 | ণ্ড | conjunct | 868 | 0.773 |
+| 162 | হ্ম | conjunct | 465 | 0.826 |
+| 116 | ম্ন | conjunct | 436 | 0.836 |
+| 108 | ব্জ | conjunct | 158 | 0.848 |
+| 63 | ণ্ণ | conjunct | 149 | 0.852 |
+| 54 | ট্ট | conjunct | 592 | 0.856 |
+| 37 | ঙ্ঘ | conjunct | 285 | 0.860 |
+
+#### Самые частые путаницы корней (ID)
+
+| истинный | → предсказанный | раз |
+|---|---|---:|
+| 60 ণ্ট | 83 ন্ট | 107 |
+| 59 ণ | 81 ন | 107 |
+| 61 ণ্ঠ | 84 ন্ঠ | 93 |
+| 81 ন | 59 ণ | 91 |
+| 83 ন্ট | 60 ণ্ট | 89 |
+| 62 ণ্ড | 85 ন্ড | 88 |
+| 84 ন্ঠ | 61 ণ্ঠ | 82 |
+| 54 ট্ট | 53 ট | 71 |
+| 162 হ্ম | 18 ক্ষ | 70 |
+| 32 ঙ্ক | 148 স্ক | 70 |
+
+#### OOD: recall корня vs число графем с этим корнем в train фолда
+
+| графем с корнем в train | пар (корень, фолд) | средний recall корня на OOD |
+|---|---:|---:|
+| 1–2 | 43 | 0.405 |
+| 3–5 | 99 | 0.668 |
+| 6–10 | 78 | 0.740 |
+| >10 | 142 | 0.835 |
+
+Ранговая корреляция Спирмена: ρ = 0.50.
+

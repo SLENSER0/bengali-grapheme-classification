@@ -1,0 +1,10 @@
+# Smoke test of the full pipeline in ~1-2 minutes (tiny subset, 1 epoch, 1 fold).
+base: baseline.yaml
+experiment: smoke_resnet18
+output_dir: results/_smoke
+data:
+  subset: 4000
+folds: [0]
+train:
+  epochs: 1
+save_checkpoint: false

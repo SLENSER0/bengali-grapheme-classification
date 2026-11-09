@@ -1,0 +1,4 @@
+# B0: majority-class predictor (floor + metric sanity check; expected score ~0.0614)
+base: common.yaml
+experiment: b0_constant
+output_dir: results/b0_constant

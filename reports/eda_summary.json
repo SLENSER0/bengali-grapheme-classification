@@ -1,0 +1,90 @@
+{
+  "n_images": 200840,
+  "n_graphemes": 1295,
+  "missing_values": 0,
+  "columns": {
+    "image_id": "str",
+    "grapheme_root": "int64",
+    "vowel_diacritic": "int64",
+    "consonant_diacritic": "int64",
+    "grapheme": "str"
+  },
+  "n_classes_present": {
+    "root": 168,
+    "vowel": 11,
+    "consonant": 7
+  },
+  "class_map_sizes": {
+    "consonant_diacritic": 7,
+    "grapheme_root": 168,
+    "vowel_diacritic": 11
+  },
+  "root_types": {
+    "conjunct": 119,
+    "consonant": 38,
+    "vowel": 11
+  },
+  "imbalance": {
+    "root": {
+      "max": 5736,
+      "min": 130,
+      "ratio_max_min": 44.12307692307692,
+      "median": 760.5,
+      "top_class": 72,
+      "top_share": 0.02856004779924318
+    },
+    "vowel": {
+      "max": 41508,
+      "min": 3528,
+      "ratio_max_min": 11.76530612244898,
+      "median": 16152.0,
+      "top_class": 0,
+      "top_share": 0.2066719776936865
+    },
+    "consonant": {
+      "max": 125278,
+      "min": 619,
+      "ratio_max_min": 202.38772213247174,
+      "median": 21270.0,
+      "top_class": 0,
+      "top_share": 0.6237701653057159
+    }
+  },
+  "images_per_grapheme": {
+    "min": 118,
+    "median": 152.0,
+    "max": 283,
+    "p05": 137.0
+  },
+  "graphemes_per_root": {
+    "min": 1,
+    "median": 5.0,
+    "max": 37,
+    "roots_in_single_grapheme": 24
+  },
+  "possible_combinations": 12936,
+  "share_of_combinations_seen": 0.1001082251082251,
+  "multi_diacritic_rows": 446,
+  "exact_duplicate_images": 0,
+  "near_duplicate_pairs": 4141,
+  "images_with_near_duplicate": 8282,
+  "bbox": {
+    "bbox_h": {
+      "median": 99.0,
+      "p01": 62.0,
+      "p99": 137.0
+    },
+    "bbox_w": {
+      "median": 123.0,
+      "p01": 71.0,
+      "p99": 202.0
+    },
+    "ink_frac": {
+      "median": 0.060126190770753436,
+      "p01": 0.026506247680316713,
+      "p99": 0.1170048249412347
+    }
+  },
+  "near_empty_images": 0,
+  "graphemes_with_inconsistent_components": 0
+}

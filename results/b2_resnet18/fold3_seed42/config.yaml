@@ -1,0 +1,35 @@
+data:
+  processed_dir: data/processed
+  img_size: 128
+  folds_file: splits/folds.csv
+  subset: null
+device: auto
+folds:
+- 0
+- 1
+- 2
+- 3
+- 4
+seeds:
+- 42
+eval:
+  batch_size: 1024
+experiment: b2_resnet18
+output_dir: results/b2_resnet18
+model:
+  backbone: resnet18.tv_in1k
+  pretrained: true
+  dropout: 0.0
+train:
+  epochs: 6
+  batch_size: 256
+  lr: 0.001
+  weight_decay: 0.0001
+  warmup_frac: 0.1
+  loss_weights:
+  - 1.0
+  - 1.0
+  - 1.0
+  amp: none
+  log_val_every_epoch: true
+save_checkpoint: true

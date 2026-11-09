@@ -1,0 +1,23 @@
+{
+  "experiment": "b4_mobileclip2_s0_probe",
+  "fold": 2,
+  "seed": 42,
+  "id_root": 0.5699466327290136,
+  "id_vowel": 0.7379776389306543,
+  "id_consonant": 0.5503544613223382,
+  "id_score": 0.6070563414277549,
+  "id_n": 36095,
+  "ood_root": 0.33951530912748235,
+  "ood_vowel": 0.7554639618590969,
+  "ood_consonant": 0.6228149488384033,
+  "ood_score": 0.5143273822381162,
+  "ood_n": 20360,
+  "main_score": 0.5606918618329355,
+  "all_score_kaggle": 0.5748640307172079,
+  "probe_sec": 1.8531981660053134,
+  "extract_sec": 712.1587492497638,
+  "n_params_encoder": 11406976,
+  "dim": 512,
+  "n_rows": 200840,
+  "n_train": 144385
+}

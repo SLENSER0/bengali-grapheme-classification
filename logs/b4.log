@@ -1,0 +1,14 @@
+extracting {'encoder': 'mobileclip2', 'model_name': 'MobileCLIP2-S0', 'pretrained': 'dfndr2b', 'input_size': 256, 'invert': True, 'batch_size': 256} features for 200840 images -> /Users/basil/rnd ml/bengali-grapheme-rnd/data/features/mobileclip2_MobileCLIP2-S0_256_inv1.npy
+  features 256/200840  2s
+  features 25856/200840  92s
+  features 51456/200840  181s
+  features 77056/200840  271s
+  features 102656/200840  361s
+  features 128256/200840  450s
+  features 153856/200840  544s
+  features 179456/200840  636s
+[b4_mobileclip2_s0_probe fold 0 seed 42] {'id_score': 0.6101, 'ood_score': 0.541, 'main_score': 0.5756}
+[b4_mobileclip2_s0_probe fold 1 seed 42] {'id_score': 0.6117, 'ood_score': 0.5219, 'main_score': 0.5668}
+[b4_mobileclip2_s0_probe fold 2 seed 42] {'id_score': 0.6071, 'ood_score': 0.5143, 'main_score': 0.5607}
+[b4_mobileclip2_s0_probe fold 3 seed 42] {'id_score': 0.6096, 'ood_score': 0.5137, 'main_score': 0.5617}
+[b4_mobileclip2_s0_probe fold 4 seed 42] {'id_score': 0.6101, 'ood_score': 0.5205, 'main_score': 0.5653}

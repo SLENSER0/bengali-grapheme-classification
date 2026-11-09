@@ -1,0 +1,23 @@
+{
+  "experiment": "b3_dinov3_vits16_probe",
+  "fold": 3,
+  "seed": 42,
+  "id_root": 0.6137815932886946,
+  "id_vowel": 0.7968859690097179,
+  "id_consonant": 0.5940368321872457,
+  "id_score": 0.6546214969435883,
+  "id_n": 36129,
+  "ood_root": 0.4127639012698207,
+  "ood_vowel": 0.7900627883040644,
+  "ood_consonant": 0.584643720916742,
+  "ood_score": 0.5500585779401119,
+  "ood_n": 20199,
+  "main_score": 0.6023400374418502,
+  "all_score_kaggle": 0.628672048543117,
+  "probe_sec": 2.4442534996196628,
+  "extract_sec": 674.1662568347529,
+  "n_params_encoder": 21586944,
+  "dim": 768,
+  "n_rows": 200840,
+  "n_train": 144512
+}

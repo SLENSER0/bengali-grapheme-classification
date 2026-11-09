@@ -1,0 +1,22 @@
+{
+  "experiment": "b0_constant",
+  "fold": 3,
+  "seed": 0,
+  "id_root": 0.005952380952380952,
+  "id_vowel": 0.09090909090909091,
+  "id_consonant": 0.14285714285714285,
+  "id_score": 0.06141774891774891,
+  "id_n": 36129,
+  "ood_root": 0.015873015873015872,
+  "ood_vowel": 0.09090909090909091,
+  "ood_consonant": 0.14285714285714285,
+  "ood_score": 0.06637806637806637,
+  "ood_n": 20199,
+  "main_score": 0.06389790764790765,
+  "all_score_kaggle": 0.06141774891774891,
+  "majority": {
+    "grapheme_root": 72,
+    "vowel_diacritic": 0,
+    "consonant_diacritic": 0
+  }
+}

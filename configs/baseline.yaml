@@ -1,0 +1,19 @@
+# B2 (main baseline): ImageNet-pretrained ResNet18, 3 linear heads, fine-tuned end-to-end.
+base: common.yaml
+experiment: b2_resnet18
+output_dir: results/b2_resnet18
+model:
+  backbone: resnet18.tv_in1k   # torchvision ImageNet-1k weights via timm; conv1 adapted to 1 channel
+  pretrained: true
+  dropout: 0.0
+train:
+  epochs: 6                    # fixed budget, no early stopping on validation
+  batch_size: 256
+  lr: 1.0e-3                   # AdamW + one-cycle cosine schedule
+  weight_decay: 1.0e-4
+  warmup_frac: 0.1
+  min_last_batch: 128          # skip a trailing partial batch smaller than this (BatchNorm stats from 1 image are noise)
+  loss_weights: [1.0, 1.0, 1.0]  # plain sum of the three cross-entropies (root, vowel, consonant)
+  amp: none                    # bf16 autocast gives no speed-up on MPS (benchmarked), keep fp32
+  log_val_every_epoch: true    # logged for learning curves only, never used for selection
+save_checkpoint: true

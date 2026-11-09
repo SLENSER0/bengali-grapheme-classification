@@ -1,0 +1,5 @@
+...................                                                      [100%]
+19 passed in 3.86s
+[fold 0 seed 42] device=mps train=4000 val_id=1000 val_ood=1000
+{'epoch': 1, 'train_loss': 6.8343, 'epoch_sec': 6.0426, 'lr': 0.0, 'id_score': 0.2196, 'ood_score': 0.2469, 'main_score': 0.2333}
+{'id_score': 0.2196, 'ood_score': 0.2469, 'main_score': 0.2333, 'all_score_kaggle': 0.2236}

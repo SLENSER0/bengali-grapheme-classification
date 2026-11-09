@@ -1,0 +1,17 @@
+# B4: frozen Apple MobileCLIP2-S0 image tower (S0 chosen over S2: 285 vs 107 img/s on MPS, same embedding size) (DFNDR-2B) + linear heads on the image embedding.
+base: common.yaml
+experiment: b4_mobileclip2_s0_probe
+output_dir: results/b4_mobileclip2_s0_probe
+encoder:
+  encoder: mobileclip2
+  model_name: MobileCLIP2-S0
+  pretrained: dfndr2b
+  input_size: 256
+  invert: true
+  batch_size: 256
+probe:
+  epochs: 30
+  batch_size: 4096
+  lr: 3.0e-3
+  weight_decay: 1.0e-4
+  dropout: 0.0

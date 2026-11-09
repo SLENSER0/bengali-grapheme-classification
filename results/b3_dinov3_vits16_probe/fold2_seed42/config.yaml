@@ -1,0 +1,33 @@
+data:
+  processed_dir: data/processed
+  img_size: 128
+  folds_file: splits/folds.csv
+  subset: null
+device: auto
+folds:
+- 0
+- 1
+- 2
+- 3
+- 4
+seeds:
+- 42
+eval:
+  batch_size: 1024
+experiment: b3_dinov3_vits16_probe
+output_dir: results/b3_dinov3_vits16_probe
+encoder:
+  encoder: dinov3
+  model_name: vit_small_patch16_dinov3.lvd1689m
+  input_size: 224
+  invert: true
+  batch_size: 256
+probe:
+  epochs: 30
+  batch_size: 4096
+  lr: 0.003
+  weight_decay: 0.0001
+  dropout: 0.0
+run:
+  fold: 2
+  seed: 42
