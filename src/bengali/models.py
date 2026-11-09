@@ -104,6 +104,35 @@ class DinoV3Encoder(FrozenEncoder):
         return torch.cat([cls, patches], dim=1)
 
 
+class DinoV3PartialFT(FrozenEncoder):
+    """DINOv3 ViT with only the last ``unfreeze_last`` transformer blocks (+ final norm) trainable, and 3 linear heads
+    on concat(CLS, mean patch tokens) — the same features as the linear probe B3. Earlier blocks stay frozen: they
+    get no gradients, and autograd stores no activations for them, so a step costs ~forward + a few blocks of backward.
+    """
+
+    def __init__(self, backbone: str = "vit_small_patch16_dinov3.lvd1689m", unfreeze_last: int = 4, input_size: int = 128, invert: bool = True, dropout: float = 0.0, pretrained: bool = True) -> None:
+        super().__init__(input_size, invert)
+        import timm
+
+        self.model = timm.create_model(backbone, pretrained=pretrained, num_classes=0)
+        cfg = self.model.pretrained_cfg
+        self.mean, self.std = cfg["mean"], cfg["std"]
+        for p in self.model.parameters():
+            p.requires_grad = False
+        trainable = list(self.model.blocks[len(self.model.blocks) - unfreeze_last :]) + [self.model.norm]
+        for m in trainable:
+            for p in m.parameters():
+                p.requires_grad = True
+        self.head = MultiHead(2 * self.model.num_features, dropout)
+
+    def backbone_parameters(self):
+        return [p for p in self.model.parameters() if p.requires_grad]
+
+    def forward(self, x_uint8: torch.Tensor) -> dict[str, torch.Tensor]:
+        t = self.model.forward_features(self.to_rgb(x_uint8, self.mean, self.std))
+        return self.head(torch.cat([t[:, 0], t[:, self.model.num_prefix_tokens :].mean(1)], dim=1))
+
+
 class MobileClip2Encoder(FrozenEncoder):
     """Apple MobileCLIP2 image tower (open_clip). Features = image embedding (pre-normalisation)."""
 

@@ -28,12 +28,13 @@ from .metric import bootstrap_ci, paired_bootstrap, per_class_recall, slice_scor
 from .splits import fold_indices, load_folds
 from .utils import COMPONENTS, N_CLASSES, resolve, save_json
 
-ORDER = ["b0_constant", "b1_pixels_linear", "b3_dinov3_vits16_probe", "b4_mobileclip2_s0_probe", "b2_resnet18"]
+ORDER = ["b0_constant", "b1_pixels_linear", "b3_dinov3_vits16_probe", "b4_mobileclip2_s0_probe", "b5_dinov3_vits16_ft_last4", "b2_resnet18"]
 LABEL = {
     "b0_constant": "B0 constant",
     "b1_pixels_linear": "B1 pixels32 + linear",
     "b3_dinov3_vits16_probe": "B3 DINOv3 ViT-S/16 (frozen) + linear",
     "b4_mobileclip2_s0_probe": "B4 MobileCLIP2-S0 (frozen) + linear",
+    "b5_dinov3_vits16_ft_last4": "B5 DINOv3 ViT-S/16 (4 blocks tuned; fold 0)",
     "b2_resnet18": "B2 ResNet18 fine-tune",
 }
 
@@ -446,7 +447,7 @@ def plot_comparison(table: dict, figs) -> None:
     if not table:
         return
     names = list(table)
-    fig, ax = plt.subplots(figsize=(9, 4))
+    fig, ax = plt.subplots(figsize=(11, 4.2))
     x = np.arange(len(names))
     for k, (key, color) in enumerate((("id", "#1f77b4"), ("ood", "#d62728"), ("main", "#333"))):
         means = [table[n]["metrics"][f"{key}_score"][0] for n in names]
@@ -457,7 +458,7 @@ def plot_comparison(table: dict, figs) -> None:
     ax.set_ylim(0, 1)
     ax.set_ylabel("hierarchical macro recall")
     ax.legend()
-    ax.set_title("Same 5 folds for every model: mean over folds, whiskers = ±1 std over folds", fontsize=10)
+    ax.set_title("Same folds for every model (B5: fold 0 only): mean over folds, whiskers = ±1 std over folds", fontsize=10)
     fig.tight_layout()
     fig.savefig(figs / "res_model_comparison.png", dpi=130)
     plt.close(fig)

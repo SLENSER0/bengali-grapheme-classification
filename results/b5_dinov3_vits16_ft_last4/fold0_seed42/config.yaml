@@ -1,0 +1,39 @@
+data:
+  processed_dir: data/processed
+  img_size: 128
+  folds_file: splits/folds.csv
+  subset: null
+device: auto
+folds:
+- 0
+seeds:
+- 42
+eval:
+  batch_size: 1024
+experiment: b5_dinov3_vits16_ft_last4
+output_dir: results/b5_dinov3_vits16_ft_last4
+model:
+  kind: dinov3_partial
+  backbone: vit_small_patch16_dinov3.lvd1689m
+  unfreeze_last: 4
+  input_size: 128
+  invert: true
+  dropout: 0.0
+train:
+  epochs: 4
+  batch_size: 256
+  lr: 0.001
+  backbone_lr_mult: 0.1
+  weight_decay: 0.0001
+  warmup_frac: 0.1
+  min_last_batch: 128
+  loss_weights:
+  - 1.0
+  - 1.0
+  - 1.0
+  amp: none
+  log_val_every_epoch: false
+save_checkpoint: false
+run:
+  fold: 0
+  seed: 42

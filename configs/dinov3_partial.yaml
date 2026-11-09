@@ -1,0 +1,25 @@
+# B5 (exploratory, fold 0 only): DINOv3 ViT-S/16 with the last 4 of its 12 blocks unfrozen + 3 linear heads on
+# concat(CLS, mean patch) — the same features as the B3 probe, but the top of the backbone adapts to handwriting.
+base: common.yaml
+experiment: b5_dinov3_vits16_ft_last4
+output_dir: results/b5_dinov3_vits16_ft_last4
+folds: [0]                     # time budget: one fold, compared pairwise with B2/B3 on the same fold
+model:
+  kind: dinov3_partial
+  backbone: vit_small_patch16_dinov3.lvd1689m
+  unfreeze_last: 4             # 7.2M of 21.7M parameters trainable
+  input_size: 128              # = crop size, 8x8 patches; 224 is 3x slower (190 vs 581 img/s train on M4 Pro)
+  invert: true                 # dark ink on light background, as for the probe
+  dropout: 0.0
+train:
+  epochs: 4                    # fixed budget, no early stopping
+  batch_size: 256
+  lr: 1.0e-3                   # heads
+  backbone_lr_mult: 0.1        # unfrozen ViT blocks: 1e-4
+  weight_decay: 1.0e-4
+  warmup_frac: 0.1
+  min_last_batch: 128
+  loss_weights: [1.0, 1.0, 1.0]
+  amp: none
+  log_val_every_epoch: false   # saves ~1 min per epoch; only the final model is evaluated
+save_checkpoint: false

@@ -19,7 +19,7 @@ import torch
 import torch.nn.functional as F
 
 from .metric import slice_scores
-from .models import FinetuneNet, count_params
+from .models import DinoV3PartialFT, FinetuneNet, count_params
 from .runs import load_fold_data, prediction_frame, run_dir, save_run
 from .utils import COMPONENTS, Timer, get_device, load_config, resolve, save_json, seed_everything
 
@@ -57,8 +57,18 @@ def run(cfg: dict, fold: int, seed: int) -> dict:
     tr = ix["train"]
     print(f"[fold {fold} seed {seed}] device={device} train={len(tr)} val_id={len(ix['val_id'])} val_ood={len(ix['val_ood'])}")
 
-    model = FinetuneNet(cfg["model"]["backbone"], cfg["model"].get("pretrained", True), cfg["model"].get("dropout", 0.0)).to(device)
-    opt = torch.optim.AdamW(model.parameters(), lr=tcfg["lr"], weight_decay=tcfg["weight_decay"])
+    mcfg = cfg["model"]
+    if mcfg.get("kind", "timm_cnn") == "dinov3_partial":
+        model = DinoV3PartialFT(mcfg["backbone"], mcfg["unfreeze_last"], mcfg["input_size"], mcfg.get("invert", True), mcfg.get("dropout", 0.0)).to(device)
+        # heads at the base lr, unfrozen ViT blocks at a smaller lr (standard for fine-tuning pretrained transformers)
+        groups = [
+            {"params": list(model.head.parameters()), "lr": tcfg["lr"]},
+            {"params": model.backbone_parameters(), "lr": tcfg["lr"] * tcfg.get("backbone_lr_mult", 1.0)},
+        ]
+    else:
+        model = FinetuneNet(mcfg["backbone"], mcfg.get("pretrained", True), mcfg.get("dropout", 0.0)).to(device)
+        groups = [{"params": list(model.parameters()), "lr": tcfg["lr"]}]
+    opt = torch.optim.AdamW(groups, lr=tcfg["lr"], weight_decay=tcfg["weight_decay"])
     bs = tcfg["batch_size"]
     # A tiny trailing batch (e.g. 1 image when len(tr) % bs == 1) gives noisy BatchNorm running statistics right
     # before evaluation, so a remainder smaller than `min_last_batch` is skipped (different images each epoch).
@@ -67,7 +77,7 @@ def run(cfg: dict, fold: int, seed: int) -> dict:
     steps_per_epoch = n_full + int(keep_last)
     total_steps = tcfg["epochs"] * steps_per_epoch
     sched = torch.optim.lr_scheduler.OneCycleLR(
-        opt, max_lr=tcfg["lr"], total_steps=total_steps, pct_start=tcfg.get("warmup_frac", 0.1), anneal_strategy="cos"
+        opt, max_lr=[g["lr"] for g in groups], total_steps=total_steps, pct_start=tcfg.get("warmup_frac", 0.1), anneal_strategy="cos"
     )
     w = tcfg.get("loss_weights", [1.0, 1.0, 1.0])
     amp = tcfg.get("amp", "none") if device.type != "cpu" else "none"
@@ -113,6 +123,7 @@ def run(cfg: dict, fold: int, seed: int) -> dict:
     extra = {
         "train_sec": timer(),
         "n_params": count_params(model),
+        "n_params_trainable": int(sum(p.numel() for p in model.parameters() if p.requires_grad)),
         "device": str(device),
         "epochs": tcfg["epochs"],
         "n_train": int(len(tr)),
