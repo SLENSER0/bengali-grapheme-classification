@@ -1,0 +1,22 @@
+{
+  "experiment": "b2_resnet18",
+  "fold": 0,
+  "seed": 44,
+  "id_root": 0.9427419421432138,
+  "id_vowel": 0.9835138475912669,
+  "id_consonant": 0.9709827324414412,
+  "id_score": 0.9599951160797839,
+  "id_n": 36085,
+  "ood_root": 0.7728184583518984,
+  "ood_vowel": 0.9349705822785134,
+  "ood_consonant": 0.8458639312735462,
+  "ood_score": 0.8316178575639641,
+  "ood_n": 20428,
+  "main_score": 0.895806486821874,
+  "all_score_kaggle": 0.9229205239694285,
+  "train_sec": 954.4190012495965,
+  "n_params": 11265658,
+  "device": "mps",
+  "epochs": 6,
+  "n_train": 144327
+}

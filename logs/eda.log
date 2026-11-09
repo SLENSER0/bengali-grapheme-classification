@@ -1,0 +1,16 @@
+n_images                                  200840.000000
+n_graphemes                                 1295.000000
+missing_values                                 0.000000
+possible_combinations                      12936.000000
+share_of_combinations_seen                     0.100108
+multi_diacritic_rows                         446.000000
+exact_duplicate_images                         0.000000
+near_duplicate_pairs                        4141.000000
+images_with_near_duplicate                  8282.000000
+near_empty_images                              0.000000
+graphemes_with_inconsistent_components         0.000000
+| компонент | классов | max | min | max/min | доля топ-класса |
+|---|---:|---:|---:|---:|---:|
+| grapheme_root | 168 | 5736 | 130 | 44.1 | 2.9% |
+| vowel_diacritic | 11 | 41508 | 3528 | 11.8 | 20.7% |
+| consonant_diacritic | 7 | 125278 | 619 | 202.4 | 62.4% |

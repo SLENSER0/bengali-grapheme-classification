@@ -1,0 +1,23 @@
+{
+  "experiment": "b1_pixels_linear",
+  "fold": 1,
+  "seed": 42,
+  "id_root": 0.09147136424914414,
+  "id_vowel": 0.4050858022077586,
+  "id_consonant": 0.24718176617685902,
+  "id_score": 0.20880257422072648,
+  "id_n": 36158,
+  "ood_root": 0.027996987465819106,
+  "ood_vowel": 0.3935178604632121,
+  "ood_consonant": 0.27566920454078825,
+  "ood_score": 0.18129525998390963,
+  "ood_n": 20022,
+  "main_score": 0.19504891710231806,
+  "all_score_kaggle": 0.20069610998312976,
+  "probe_sec": 2.973204040899873,
+  "extract_sec": 2.388196832500398,
+  "n_params_encoder": 0,
+  "dim": 1024,
+  "n_rows": 200840,
+  "n_train": 144660
+}

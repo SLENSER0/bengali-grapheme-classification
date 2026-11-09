@@ -1,0 +1,11 @@
+# Shared settings for every experiment (inherited via `base: common.yaml`).
+data:
+  processed_dir: data/processed
+  img_size: 128            # side of the preprocessed square crop
+  folds_file: splits/folds.csv
+  subset: null             # int -> random subset of train (val gets 25% of it); smoke runs only
+device: auto               # cuda > mps > cpu
+folds: [0, 1, 2, 3, 4]
+seeds: [42]
+eval:
+  batch_size: 1024

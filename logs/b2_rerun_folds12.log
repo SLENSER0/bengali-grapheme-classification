@@ -1,0 +1,16 @@
+[fold 1 seed 42] device=mps train=144660 val_id=36158 val_ood=20022
+{'epoch': 1, 'train_loss': 2.1934, 'epoch_sec': 144.9859, 'lr': 0.001, 'id_score': 0.8761, 'ood_score': 0.6898, 'main_score': 0.7829}
+{'epoch': 2, 'train_loss': 0.4455, 'epoch_sec': 144.325, 'lr': 0.0008, 'id_score': 0.9249, 'ood_score': 0.7311, 'main_score': 0.828}
+{'epoch': 3, 'train_loss': 0.2548, 'epoch_sec': 142.0729, 'lr': 0.0006, 'id_score': 0.9437, 'ood_score': 0.7573, 'main_score': 0.8505}
+{'epoch': 4, 'train_loss': 0.1206, 'epoch_sec': 145.023, 'lr': 0.0003, 'id_score': 0.9549, 'ood_score': 0.7571, 'main_score': 0.856}
+{'epoch': 5, 'train_loss': 0.0397, 'epoch_sec': 142.0821, 'lr': 0.0001, 'id_score': 0.9606, 'ood_score': 0.7787, 'main_score': 0.8697}
+{'epoch': 6, 'train_loss': 0.016, 'epoch_sec': 145.761, 'lr': 0.0, 'id_score': 0.9621, 'ood_score': 0.7788, 'main_score': 0.8704}
+{'id_score': 0.9621, 'ood_score': 0.7788, 'main_score': 0.8704, 'all_score_kaggle': 0.9064}
+[fold 2 seed 42] device=mps train=144385 val_id=36095 val_ood=20360
+{'epoch': 1, 'train_loss': 2.1824, 'epoch_sec': 146.956, 'lr': 0.001, 'id_score': 0.8323, 'ood_score': 0.6379, 'main_score': 0.7351}
+{'epoch': 2, 'train_loss': 0.4402, 'epoch_sec': 143.2678, 'lr': 0.0008, 'id_score': 0.9253, 'ood_score': 0.7397, 'main_score': 0.8325}
+{'epoch': 3, 'train_loss': 0.2479, 'epoch_sec': 143.1941, 'lr': 0.0006, 'id_score': 0.9432, 'ood_score': 0.7286, 'main_score': 0.8359}
+{'epoch': 4, 'train_loss': 0.1166, 'epoch_sec': 141.3292, 'lr': 0.0003, 'id_score': 0.953, 'ood_score': 0.7233, 'main_score': 0.8381}
+{'epoch': 5, 'train_loss': 0.0383, 'epoch_sec': 137.0039, 'lr': 0.0001, 'id_score': 0.9605, 'ood_score': 0.7513, 'main_score': 0.8559}
+{'epoch': 6, 'train_loss': 0.0152, 'epoch_sec': 135.2692, 'lr': 0.0, 'id_score': 0.9602, 'ood_score': 0.7492, 'main_score': 0.8547}
+{'id_score': 0.9602, 'ood_score': 0.7492, 'main_score': 0.8547, 'all_score_kaggle': 0.884}

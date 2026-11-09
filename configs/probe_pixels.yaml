@@ -1,0 +1,15 @@
+# B1: linear probe on raw 32x32 pixels = multinomial logistic regression (no representation learning).
+base: common.yaml
+experiment: b1_pixels_linear
+output_dir: results/b1_pixels_linear
+encoder:
+  encoder: pixels
+  input_size: 32
+  invert: false
+  batch_size: 2048
+probe:
+  epochs: 30
+  batch_size: 4096
+  lr: 3.0e-3
+  weight_decay: 1.0e-4
+  dropout: 0.0

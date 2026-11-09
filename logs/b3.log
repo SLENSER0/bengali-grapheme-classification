@@ -1,0 +1,14 @@
+extracting {'encoder': 'dinov3', 'model_name': 'vit_small_patch16_dinov3.lvd1689m', 'input_size': 224, 'invert': True, 'batch_size': 256} features for 200840 images -> /Users/basil/rnd ml/bengali-grapheme-rnd/data/features/dinov3_vit_small_patch16_dinov3.lvd1689m_224_inv1.npy
+  features 256/200840  1s
+  features 25856/200840  88s
+  features 51456/200840  175s
+  features 77056/200840  260s
+  features 102656/200840  344s
+  features 128256/200840  429s
+  features 153856/200840  515s
+  features 179456/200840  602s
+[b3_dinov3_vits16_probe fold 0 seed 42] {'id_score': 0.653, 'ood_score': 0.5685, 'main_score': 0.6107}
+[b3_dinov3_vits16_probe fold 1 seed 42] {'id_score': 0.6563, 'ood_score': 0.5466, 'main_score': 0.6015}
+[b3_dinov3_vits16_probe fold 2 seed 42] {'id_score': 0.6526, 'ood_score': 0.5498, 'main_score': 0.6012}
+[b3_dinov3_vits16_probe fold 3 seed 42] {'id_score': 0.6546, 'ood_score': 0.5501, 'main_score': 0.6023}
+[b3_dinov3_vits16_probe fold 4 seed 42] {'id_score': 0.6526, 'ood_score': 0.5552, 'main_score': 0.6039}

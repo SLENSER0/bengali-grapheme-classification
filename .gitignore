@@ -1,0 +1,12 @@
+# Competition data (images, labels) must not be redistributed (Kaggle rules, "Data Access and Use");
+# committed files hold only image ids, fold assignments and model predictions. Heavy artefacts are excluded too.
+data/
+checkpoints/
+results/_smoke/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+.env
+kaggle.json

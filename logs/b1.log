@@ -1,0 +1,7 @@
+extracting {'encoder': 'pixels', 'input_size': 32, 'invert': False, 'batch_size': 2048} features for 200840 images -> /Users/basil/rnd ml/bengali-grapheme-rnd/data/features/pixels__32_inv0.npy
+  features 2048/200840  0s
+[b1_pixels_linear fold 0 seed 42] {'id_score': 0.2098, 'ood_score': 0.185, 'main_score': 0.1974}
+[b1_pixels_linear fold 1 seed 42] {'id_score': 0.2088, 'ood_score': 0.1813, 'main_score': 0.195}
+[b1_pixels_linear fold 2 seed 42] {'id_score': 0.2091, 'ood_score': 0.1932, 'main_score': 0.2012}
+[b1_pixels_linear fold 3 seed 42] {'id_score': 0.2078, 'ood_score': 0.1824, 'main_score': 0.1951}
+[b1_pixels_linear fold 4 seed 42] {'id_score': 0.2069, 'ood_score': 0.194, 'main_score': 0.2004}

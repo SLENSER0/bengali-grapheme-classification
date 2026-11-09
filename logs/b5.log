@@ -1,0 +1,6 @@
+[fold 0 seed 42] device=mps train=144327 val_id=36085 val_ood=20428
+{'epoch': 1, 'train_loss': 3.338, 'epoch_sec': 233.006, 'lr': 0.0009}
+{'epoch': 2, 'train_loss': 0.7429, 'epoch_sec': 244.5884, 'lr': 0.0006}
+{'epoch': 3, 'train_loss': 0.5126, 'epoch_sec': 232.7099, 'lr': 0.0002}
+{'epoch': 4, 'train_loss': 0.4239, 'epoch_sec': 235.5364, 'lr': 0.0, 'id_score': 0.9072, 'ood_score': 0.8199, 'main_score': 0.8635}
+{'id_score': 0.9072, 'ood_score': 0.8199, 'main_score': 0.8635, 'all_score_kaggle': 0.8819}

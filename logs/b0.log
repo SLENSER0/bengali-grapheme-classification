@@ -1,0 +1,5 @@
+[constant fold 0] {'id_score': 0.0614, 'ood_score': 0.0713, 'main_score': 0.0664}
+[constant fold 1] {'id_score': 0.0614, 'ood_score': 0.0709, 'main_score': 0.0662}
+[constant fold 2] {'id_score': 0.0614, 'ood_score': 0.0763, 'main_score': 0.0689}
+[constant fold 3] {'id_score': 0.0614, 'ood_score': 0.0664, 'main_score': 0.0639}
+[constant fold 4] {'id_score': 0.0614, 'ood_score': 0.0732, 'main_score': 0.0673}
