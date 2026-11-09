@@ -21,7 +21,7 @@
 
 ## 0. Как запустить
 
-Требования: Python 3.11–3.12, [uv](https://docs.astral.sh/uv/), ~12 ГБ на диске. Код выбирает устройство сам (CUDA → Apple MPS → CPU); все числа ниже получены на Apple M4 Pro (MPS, 48 ГБ RAM).
+Все команды выполняются из корня репозитория. Требования: Python 3.11–3.12, [uv](https://docs.astral.sh/uv/), ~12 ГБ на диске. Код выбирает устройство сам (CUDA → Apple MPS → CPU); все числа ниже получены на Apple M4 Pro (MPS, 48 ГБ RAM).
 
 ```bash
 uv sync                          # окружение по uv.lock; без uv: pip install -r requirements.txt && pip install -e .
