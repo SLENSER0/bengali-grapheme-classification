@@ -436,7 +436,11 @@ def evaluate(results: Path, folds: pd.DataFrame, near_dup: pd.DataFrame, n_boot:
         "diagnostics": errors,
         "leak_sensitivity": sensitivity,
     }
-    pd.json_normalize(runs.to_dict("records")).to_csv(results / "experiments.csv", index=False)
+    tracker = pd.json_normalize(runs.to_dict("records"))
+    tracker.insert(1, "prior_strength", tracker.cell.isin(["p2p", "both"]).astype(int) * protocol["hw2"]["prior_strength"])
+    tracker.insert(2, "gda_stages", np.where(tracker.cell.isin(["gda", "both"]), "+".join(protocol["hw2"]["stages"]), ""))
+    tracker.insert(3, "config_file", [f"{r.cell}/fold{r.fold}_seed{r.seed}/config.yaml" for r in tracker.itertuples()])
+    tracker.to_csv(results / "experiments.csv", index=False)
     save_json(summary, results / "summary.json")
     (results / "summary.md").write_text(markdown(summary), encoding="utf-8")
     plot_comparison(summary, results / "comparison.png")

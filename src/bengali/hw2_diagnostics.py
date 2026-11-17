@@ -9,12 +9,16 @@ import numpy as np
 import pandas as pd
 
 from .evaluate import fold_context
-from .hw2_evaluate import BOOT_SEED, CELLS, FOLDS, SCORES, SEEDS, SHARED_METADATA, expected_rows, load_run
+from .hw2_evaluate import BOOT_SEED, CELLS, FOLDS, GRID, SCORES, SEEDS, SHARED_METADATA, expected_rows, load_run
 from .metric import paired_bootstrap
 from .splits import load_folds
 from .utils import resolve, save_json
 
 CONTROL_PAIRS = (("p2p", "freq"), ("gda", "final_gda"))
+CONTROL_HYPOTHESES = {
+    "freq": "Достаточно ли наблюдаемых частот меток вместо среднего предсказанного prior?",
+    "final_gda": "Достаточно ли признаков последнего слоя вместо двух слоёв?",
+}
 BINS = ("1–2", "3–5", "6–10", ">10")
 NAMES = {**CELLS, "freq": "Частоты меток", "final_gda": "GDA по слою 4"}
 
@@ -26,14 +30,16 @@ def read_artifacts(results: Path, folds: pd.DataFrame):
         raise ValueError("Fold assignments must have unique image IDs")
     protocol = None
     folds_sha256 = None
-    for fold in FOLDS:
+    tracked = []
+    for fold, seed in GRID:
         expected = expected_rows(folds, fold)
         if expected["slice"].nunique() != 2:
             raise ValueError(f"Fold {fold} must have both ID and OOD rows")
-        for cell in NAMES:
+        cells = NAMES if seed == SEEDS[0] else ("b2", *CONTROL_HYPOTHESES)
+        for cell in cells:
             parent = results if cell in CELLS else results / "controls"
-            path = parent / cell / f"fold{fold}_seed{SEEDS[0]}"
-            frame, metrics, run_protocol = load_run(path, expected, fold, SEEDS[0])
+            path = parent / cell / f"fold{fold}_seed{seed}"
+            frame, metrics, run_protocol = load_run(path, expected, fold, seed)
             identity = {k: metrics.get(k) for k in SHARED_METADATA}
             if cell == "b2":
                 reference = identity
@@ -46,9 +52,14 @@ def read_artifacts(results: Path, folds: pd.DataFrame):
                 raise ValueError(f"{path}: protocol differs from B2")
             if metrics["folds_sha256"] != folds_sha256:
                 raise ValueError(f"{path}: fold assignment checksum differs across runs")
-            frames[cell].append(frame)
-            scores[cell].append({k: float(metrics[f"{k}_score"]) for k in SCORES})
-    return {cell: pd.concat(parts, ignore_index=True) for cell, parts in frames.items()}, scores
+            if cell in CONTROL_HYPOTHESES:
+                tracked.append({"cell": cell, "method": NAMES[cell], "hypothesis": CONTROL_HYPOTHESES[cell],
+                                "config_path": str((path / "config.yaml").relative_to(results / "controls")),
+                                **metrics})
+            if seed == SEEDS[0]:
+                frames[cell].append(frame)
+                scores[cell].append({k: float(metrics[f"{k}_score"]) for k in SCORES})
+    return {cell: pd.concat(parts, ignore_index=True) for cell, parts in frames.items()}, scores, tracked
 
 
 def root_contexts(frames: dict, folds: pd.DataFrame) -> dict:
@@ -84,7 +95,8 @@ def markdown(summary: dict) -> str:
         "Дополнительные сравнения используют те же пять фолдов и чекпойнтов B2 при seed 42. "
         "Выбор модели опирается на основной эксперимент. Здесь P2P сравнивается с поправкой по частоте "
         "обучающих меток, а GDA по слоям 3 и 4 — с GDA только по слою 4. "
-        "Коэффициенты поправок зафиксированы до измерения.", "",
+        "Коэффициенты поправок зафиксированы до измерения. Реестр охватывает также два дополнительных seed на фолде 0. "
+        "[Все 14 контрольных запусков](controls/experiments.csv)", "",
         "| Метод | main | ID | OOD |", "|---|---:|---:|---:|",
     ]
     for cell, scores in summary["mean_scores"].items():
@@ -124,7 +136,7 @@ def markdown(summary: dict) -> str:
 def evaluate(results: Path, folds: pd.DataFrame, n_boot: int = 1000) -> dict:
     if n_boot < 2:
         raise ValueError("n_boot must be at least 2")
-    frames, scores = read_artifacts(results, folds)
+    frames, scores, tracked = read_artifacts(results, folds)
     means = {c: {k: float(np.mean([row[k] for row in scores[c]])) for k in SCORES} for c in NAMES}
     comparisons = {}
     for candidate, control in CONTROL_PAIRS:
@@ -133,6 +145,7 @@ def evaluate(results: Path, folds: pd.DataFrame, n_boot: int = 1000) -> dict:
         comparisons[f"{candidate}-{control}"] = {"bootstrap": ci, "per_fold": per_fold}
     summary = {"seed": SEEDS[0], "fold_order": list(FOLDS), "bootstrap": {"seed": BOOT_SEED, "n_resamples": n_boot},
                "mean_scores": means, "comparisons": comparisons, "ood_root_by_context": root_contexts(frames, folds)}
+    pd.json_normalize(tracked).to_csv(results / "controls" / "experiments.csv", index=False)
     save_json(summary, results / "diagnostics.json")
     (results / "diagnostics.md").write_text(markdown(summary), encoding="utf-8")
     return summary

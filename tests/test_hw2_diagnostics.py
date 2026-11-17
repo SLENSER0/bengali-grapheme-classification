@@ -1,11 +1,12 @@
 import json
+from pathlib import Path
 
 import pandas as pd
 import pytest
 import yaml
 
 from bengali import hw2_diagnostics as diagnostics
-from bengali.hw2_evaluate import CELLS, FOLDS, expected_rows
+from bengali.hw2_evaluate import CELLS, FOLDS, GRID, expected_rows
 from bengali.metric import slice_scores
 from bengali.utils import COMPONENTS
 
@@ -35,25 +36,26 @@ def artifacts(tmp_path):
     for k in FOLDS:
         rows += [(f"id-{k}", "id-root", 0, 0, 0, k, -1), (f"held-{k}", f"held-root-{k}", 1, 1, 1, k, k)]
     folds = pd.DataFrame(rows, columns=["image_id", "grapheme", *COMPONENTS, "id_fold", "ood_group"])
-    for k in FOLDS:
-        for cell in diagnostics.NAMES:
-            run = tmp_path / ("" if cell in CELLS else "controls") / cell / f"fold{k}_seed42"
+    for k, seed in GRID:
+        cells = diagnostics.NAMES if seed == 42 else ("b2", "freq", "final_gda")
+        for cell in cells:
+            run = tmp_path / ("" if cell in CELLS else "controls") / cell / f"fold{k}_seed{seed}"
             run.mkdir(parents=True)
             frame = expected_rows(folds, k)
             for c in COMPONENTS:
                 frame[f"pred_{c}"] = frame[c]
-            if cell == "freq":
+            if cell == "freq" and seed == 42:
                 frame.loc[frame["slice"] == "ood", "pred_grapheme_root"] = 0
             frame[["image_id", "slice", *["pred_" + c for c in COMPONENTS]]].iloc[::-1].to_csv(run / "preds.csv.gz", index=False)
             name = f"hw2_{cell}"
             metrics = {
-                "experiment": name, "fold": k, "seed": 42, **slice_scores(frame),
+                "experiment": name, "fold": k, "seed": seed, **slice_scores(frame),
                 "checkpoint_sha256": str(k) * 64, "folds_sha256": "b" * 64, "archive_predictions_sha256": "c" * 64,
                 "archive_parity": {"rows": len(frame), "all_classes_match": True},
                 "device": "cpu", "versions": {"torch": "fixture"},
             }
             (run / "metrics.json").write_text(json.dumps(metrics))
-            config = {"experiment": name, "run": {"fold": k, "seed": 42},
+            config = {"experiment": name, "run": {"fold": k, "seed": seed},
                       "hw2": {"ridge": 1.0, "alpha": 1.0, "prior_strength": 1.0, "stages": ["layer3", "layer4"]}}
             (run / "config.yaml").write_text(yaml.safe_dump(config))
     return tmp_path, folds
@@ -62,6 +64,18 @@ def artifacts(tmp_path):
 def test_supplemental_report_uses_five_paired_folds_and_controls(artifacts):
     results, folds = artifacts
     report = diagnostics.evaluate(results, folds, n_boot=20)
+    registry_path = results / "controls" / "experiments.csv"
+    registry = pd.read_csv(registry_path)
+    assert len(registry) == 14
+    assert set(zip(registry.cell, registry.fold, registry.seed)) == {
+        (cell, fold, seed) for cell in ("freq", "final_gda") for fold, seed in GRID
+    }
+    for row in registry.itertuples():
+        cfg = yaml.safe_load((registry_path.parent / row.config_path).read_text())
+        assert Path(row.config_path).parts[0] == row.cell
+        assert cfg["run"] == {"fold": row.fold, "seed": row.seed}
+        assert row.method and row.hypothesis and row.archive_predictions_sha256 == "c" * 64
+    assert registry.query("cell == 'freq' and seed == 43").iloc[0].main_score == 1.0
     contrast = report["comparisons"]["p2p-freq"]
     assert contrast["per_fold"]["main"] == [0.25] * 5
     for stat in ("point", "lo", "hi"):
@@ -75,13 +89,16 @@ def test_supplemental_report_uses_five_paired_folds_and_controls(artifacts):
     assert report["ood_root_by_context"][">10"]["recall"]["b2"] is None
 
 
-@pytest.mark.parametrize("tamper", ["checkpoint_sha256", "main_score", "experiment"])
-def test_corrupt_control_cannot_publish_report(artifacts, tamper):
+@pytest.mark.parametrize(("tamper", "seed"), [
+    ("checkpoint_sha256", 42), ("main_score", 42), ("experiment", 42), ("checkpoint_sha256", 44), ("main_score", 43),
+])
+def test_corrupt_control_cannot_publish_report(artifacts, tamper, seed):
     results, folds = artifacts
-    path = results / "controls" / "freq" / "fold0_seed42" / "metrics.json"
+    path = results / "controls" / "freq" / f"fold0_seed{seed}" / "metrics.json"
     metrics = json.loads(path.read_text())
     metrics[tamper] = {"checkpoint_sha256": "e" * 64, "main_score": -1.0, "experiment": "hw2_b2"}[tamper]
     path.write_text(json.dumps(metrics))
-    with pytest.raises(ValueError, match="fold0_seed42"):
+    with pytest.raises(ValueError, match=f"fold0_seed{seed}"):
         diagnostics.evaluate(results, folds, n_boot=2)
     assert not (results / "diagnostics.json").exists()
+    assert not (results / "controls" / "experiments.csv").exists()
