@@ -1,0 +1,54 @@
+{
+  "experiment": "hw2_final_gda",
+  "fold": 0,
+  "seed": 42,
+  "id_root": 0.9442388382837217,
+  "id_vowel": 0.9816188988906444,
+  "id_consonant": 0.9721943248699836,
+  "id_score": 0.9605727250820177,
+  "id_n": 36085,
+  "ood_root": 0.799202878476226,
+  "ood_vowel": 0.9305966118782089,
+  "ood_consonant": 0.8775611210367739,
+  "ood_score": 0.8516408724668587,
+  "ood_n": 20428,
+  "main_score": 0.9061067987744382,
+  "all_score_kaggle": 0.9285092125384158,
+  "checkpoint_sha256": "9dc5552d8c4d55ee62a43d546aa5f45941de6a8235f2bac321ee1aa16b2f8678",
+  "folds_sha256": "aa320f9e79f348b9f93b57fdca2e62e96bcf558289cf8cc0ba92b38c0191089e",
+  "archive_predictions_sha256": "e2e6dd3eebf0be178e8cc74e2bd44c2de4ff8f5bb5e2eb011ab6bee6c7584ea3",
+  "archive_parity": {
+    "rows": 56513,
+    "all_classes_match": true,
+    "max_abs_rounded_confidence_difference": {
+      "grapheme_root": 2.975463864185457e-08,
+      "vowel_diacritic": 2.975463864185457e-08,
+      "consonant_diacritic": 2.975463864185457e-08
+    }
+  },
+  "device": "mps",
+  "platform": "macOS-26.4.1-arm64-arm-64bit",
+  "python": "3.12.13",
+  "versions": {
+    "torch": "2.15.0",
+    "timm": "1.0.31",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.1"
+  },
+  "n_train": 144327,
+  "row_counts": {
+    "train": 144327,
+    "val_id": 36085,
+    "val_ood": 20428
+  },
+  "backbone": "resnet18.tv_in1k",
+  "n_params": 11265658,
+  "n_params_trainable_backbone": 0,
+  "shared_timings_sec": {
+    "train_feature_extraction": 43.50454108300619,
+    "fit_all_heads": 2.1435174589860253,
+    "validation_all_cells": 17.019848083960824,
+    "elapsed_before_writing": 65.97851699998137
+  }
+}

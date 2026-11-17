@@ -1,0 +1,84 @@
+[fold0_seed42] loading B2 on mps; resolution=128 batch_size=1024
+[fold0_seed42] extracting train features: {'train': 144327, 'val_id': 36085, 'val_ood': 20428}
+[fold0_seed42] fitting heads after 43.5s train extraction
+[fold0_seed42] scoring val_id (36085 images)
+[fold0_seed42] scoring val_ood (20428 images)
+[fold0_seed42] archive parity: {'rows': 56513, 'all_classes_match': True, 'max_abs_rounded_confidence_difference': {'grapheme_root': 2.975463864185457e-08, 'vowel_diacritic': 2.975463864185457e-08, 'consonant_diacritic': 2.975463864185457e-08}}
+b2: main=0.894678 id=0.960085 ood=0.829272
+p2p: main=0.909412 id=0.965835 ood=0.852989
+gda: main=0.907285 id=0.960537 ood=0.854032
+both: main=0.918714 id=0.965419 ood=0.872009
+freq: main=0.909441 id=0.965833 ood=0.853050
+final_gda: main=0.906107 id=0.960573 ood=0.851641
+[fold1_seed42] loading B2 on mps; resolution=128 batch_size=1024
+[fold1_seed42] extracting train features: {'train': 144660, 'val_id': 36158, 'val_ood': 20022}
+[fold1_seed42] fitting heads after 38.3s train extraction
+[fold1_seed42] scoring val_id (36158 images)
+[fold1_seed42] scoring val_ood (20022 images)
+[fold1_seed42] archive parity: {'rows': 56180, 'all_classes_match': True, 'max_abs_rounded_confidence_difference': {'grapheme_root': 2.975463864185457e-08, 'vowel_diacritic': 2.975463864185457e-08, 'consonant_diacritic': 2.975463864185457e-08}}
+b2: main=0.870440 id=0.962053 ood=0.778826
+p2p: main=0.876871 id=0.966009 ood=0.787734
+gda: main=0.880423 id=0.962541 ood=0.798306
+both: main=0.887963 id=0.966600 ood=0.809326
+freq: main=0.876793 id=0.965985 ood=0.787601
+final_gda: main=0.880902 id=0.962460 ood=0.799344
+[fold2_seed42] loading B2 on mps; resolution=128 batch_size=1024
+[fold2_seed42] extracting train features: {'train': 144385, 'val_id': 36095, 'val_ood': 20360}
+[fold2_seed42] fitting heads after 39.7s train extraction
+[fold2_seed42] scoring val_id (36095 images)
+[fold2_seed42] scoring val_ood (20360 images)
+[fold2_seed42] archive parity: {'rows': 56455, 'all_classes_match': True, 'max_abs_rounded_confidence_difference': {'grapheme_root': 2.975463864185457e-08, 'vowel_diacritic': 2.975463864185457e-08, 'consonant_diacritic': 2.975463864185457e-08}}
+b2: main=0.854735 id=0.960235 ood=0.749234
+p2p: main=0.879290 id=0.965405 ood=0.793175
+gda: main=0.867894 id=0.960482 ood=0.775305
+both: main=0.888016 id=0.965242 ood=0.810790
+freq: main=0.879253 id=0.965417 ood=0.793089
+final_gda: main=0.867957 id=0.960587 ood=0.775326
+[fold3_seed42] loading B2 on mps; resolution=128 batch_size=1024
+[fold3_seed42] extracting train features: {'train': 144512, 'val_id': 36129, 'val_ood': 20199}
+[fold3_seed42] fitting heads after 39.1s train extraction
+[fold3_seed42] scoring val_id (36129 images)
+[fold3_seed42] scoring val_ood (20199 images)
+[fold3_seed42] archive parity: {'rows': 56328, 'all_classes_match': True, 'max_abs_rounded_confidence_difference': {'grapheme_root': 2.975463864185457e-08, 'vowel_diacritic': 2.975463864185457e-08, 'consonant_diacritic': 2.975463864185457e-08}}
+b2: main=0.875904 id=0.959405 ood=0.792402
+p2p: main=0.894408 id=0.964962 ood=0.823855
+gda: main=0.888312 id=0.959423 ood=0.817200
+both: main=0.906634 id=0.964123 ood=0.849145
+freq: main=0.894457 id=0.964952 ood=0.823962
+final_gda: main=0.888462 id=0.959677 ood=0.817248
+[fold4_seed42] loading B2 on mps; resolution=128 batch_size=1024
+[fold4_seed42] extracting train features: {'train': 144609, 'val_id': 36152, 'val_ood': 20079}
+[fold4_seed42] fitting heads after 37.4s train extraction
+[fold4_seed42] scoring val_id (36152 images)
+[fold4_seed42] scoring val_ood (20079 images)
+[fold4_seed42] archive parity: {'rows': 56231, 'all_classes_match': True, 'max_abs_rounded_confidence_difference': {'grapheme_root': 2.975463864185457e-08, 'vowel_diacritic': 2.975463864185457e-08, 'consonant_diacritic': 2.975463864185457e-08}}
+b2: main=0.879718 id=0.954538 ood=0.804897
+p2p: main=0.892980 id=0.962243 ood=0.823718
+gda: main=0.890103 id=0.955762 ood=0.824445
+both: main=0.901905 id=0.961305 ood=0.842505
+freq: main=0.893029 id=0.962320 ood=0.823738
+final_gda: main=0.889127 id=0.955369 ood=0.822885
+[fold0_seed43] loading B2 on mps; resolution=128 batch_size=1024
+[fold0_seed43] extracting train features: {'train': 144327, 'val_id': 36085, 'val_ood': 20428}
+[fold0_seed43] fitting heads after 36.7s train extraction
+[fold0_seed43] scoring val_id (36085 images)
+[fold0_seed43] scoring val_ood (20428 images)
+[fold0_seed43] archive parity: {'rows': 56513, 'all_classes_match': True, 'max_abs_rounded_confidence_difference': {'grapheme_root': 2.975463864185457e-08, 'vowel_diacritic': 2.975463864185457e-08, 'consonant_diacritic': 2.975463864185457e-08}}
+b2: main=0.891195 id=0.959794 ood=0.822596
+p2p: main=0.906938 id=0.965677 ood=0.848199
+gda: main=0.902226 id=0.960602 ood=0.843851
+both: main=0.916303 id=0.965031 ood=0.867576
+freq: main=0.906938 id=0.965677 ood=0.848199
+final_gda: main=0.901867 id=0.960089 ood=0.843644
+[fold0_seed44] loading B2 on mps; resolution=128 batch_size=1024
+[fold0_seed44] extracting train features: {'train': 144327, 'val_id': 36085, 'val_ood': 20428}
+[fold0_seed44] fitting heads after 36.8s train extraction
+[fold0_seed44] scoring val_id (36085 images)
+[fold0_seed44] scoring val_ood (20428 images)
+[fold0_seed44] archive parity: {'rows': 56513, 'all_classes_match': True, 'max_abs_rounded_confidence_difference': {'grapheme_root': 2.975463864185457e-08, 'vowel_diacritic': 2.975463864185457e-08, 'consonant_diacritic': 2.975463864185457e-08}}
+b2: main=0.895806 id=0.959995 ood=0.831618
+p2p: main=0.911618 id=0.964690 ood=0.858545
+gda: main=0.908756 id=0.959917 ood=0.857596
+both: main=0.920586 id=0.964393 ood=0.876779
+freq: main=0.911618 id=0.964682 ood=0.858554
+final_gda: main=0.907977 id=0.960405 ood=0.855549

@@ -1,6 +1,8 @@
-# Bengali.AI Handwritten Grapheme Classification — ДЗ1 (ML R&D)
+# Bengali.AI Handwritten Grapheme Classification — ML R&D
 
-Постановка задачи, честный baseline, протокол оценки без утечек и воспроизводимый пайплайн для соревнования
+**ДЗ2.** Улучшения ResNet18, две абляции и проверка на невиданных графемах — в [отчёте ДЗ2](reports/hw2.md). Гипотезы, контрольные версии и порог для принятия модели зафиксированы в [плане эксперимента](docs/superpowers/plans/2026-11-18-hw2.md).
+
+**ДЗ1.** Постановка задачи, baseline, протокол оценки с анализом утечек и воспроизводимый пайплайн для соревнования
 [Bengali.AI Handwritten Grapheme Classification](https://www.kaggle.com/competitions/bengaliai-cv19) (Kaggle, 2019–2020).
 
 **TL;DR.** Нужно по изображению рукописной бенгальской графемы предсказать три компоненты: корень (168 классов), гласный (11) и согласный диакритик (7). Метрика — иерархический macro-recall.
